@@ -3,3 +3,32 @@
 *{
     background-color: red;
 }
+
+.section__search h1{
+    font-size: 90px;
+    color: #FFFFFF;
+}
+.search input{
+    border: none;
+    background-color: #000000;
+    height: 40px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+.search button{
+    border: none;
+    background-color: #FFFFFF;
+    height: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.date {
+}
+.section__task {
+}
+.tasks {
+}
+.circle__trash {
+}
