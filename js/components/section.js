@@ -31,3 +31,19 @@ export const writeTasks = async(res) => {
     });
     return plantilla;
 }
+
+export const addTask = (input) => {
+    let plantilla = "";
+    plantilla = /*html*/`
+    <article class="tasks">
+        <p>${input}</p>
+        <div class="icons">
+            <img class="check" src="images/check-circle-svgrepo-com.svg" alt="">
+            <div class="circle__trash">
+                <img class="trash" src="images/trash-svgrepo-com.svg" alt="">
+            </div>
+        </div>
+    </article>
+    `;
+    return plantilla 
+}
