@@ -7,6 +7,5 @@ let data = await getAllList();
 let allTaks = await writeTasks(data);
 
 
-section__task.innerHTML = allTaks
 
-console.log(allTaks);
+section__task.innerHTML = allTaks;
