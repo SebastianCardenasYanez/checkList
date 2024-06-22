@@ -1,5 +1,5 @@
 export const getAllList = async() => {
-    let url =`https://6674179975872d0e0a950e53.mockapi.io/todoList`;
+    let url =`https://66774418145714a1bd7445c8.mockapi.io/Checklist`;
     let options = {
         method : "GET",
     }

@@ -35,46 +35,7 @@ export const writeTasks = async(res) => {
             </article>
             `;
             section__task.innerHTML += squech
-            
-            let checks = document.querySelectorAll(".check");
-            let trashs = document.querySelectorAll(".trash");
-
-            if (checks && trashs) {    
-            checks.forEach(element => {
-                element.addEventListener("click", (e) => {
-                    let parentArticle = e.target.closest('article');
-                    if (parentArticle.classList.contains('tasks')) {
-                        parentArticle.classList.remove('tasks');
-                        parentArticle.classList.add('tasks__done');
-                        parentArticle.querySelector('p').classList.add('name__check');
-                    } else {
-                        parentArticle.classList.remove('tasks__done');
-                        parentArticle.classList.add('tasks');
-                        parentArticle.querySelector('p').classList.remove('name__check');
-                    }
-                });
-            });
-            
-            trashs.forEach(element => {
-                element.addEventListener("click", (e) => {
-                    let parentArticle = e.target.closest('article');
-                        parentArticle.remove();
-
-                    console.log("Se elimino el elemento",e.target);
-                });
-
-            });
-            }else{
-                let check = document.querySelector(".check");
-                check.addEventListener("click", (e) => {
-                    console.log("se realizo click",e.target);
-                });
-                
-                let trash = document.querySelector(".trash");
-                trash.addEventListener("click", (e) => {
-                console.log("se realizo click",e.target);
-                });
-            };
+    
         }
     });
 }

@@ -4,12 +4,35 @@ import {writeTasks, addTask} from "./components/section.js";
 let section__task = document.querySelector(".section__task");
 let input__search = document.querySelector("#input__search");
 
-
-
-
 let data = await getAllList();
 let allTaks = await writeTasks(data);
 
+
+let checks = document.querySelectorAll(".check");
+    checks.forEach(element => {
+        element.addEventListener("click", (e) => {
+            let parentArticle = e.target.closest('article');
+            if (parentArticle.classList.contains('tasks')) {
+                parentArticle.classList.remove('tasks');
+                parentArticle.classList.add('tasks__done');
+                parentArticle.querySelector('p').classList.add('name__check');
+            } else {
+                parentArticle.classList.remove('tasks__done');
+                parentArticle.classList.add('tasks');
+                parentArticle.querySelector('p').classList.remove('name__check');
+            }
+        });
+    });
+    let trashs = document.querySelectorAll(".trash");
+    trashs.forEach(element => {
+        element.addEventListener("click", (e) => {
+            let parentArticle = e.target.closest('article');
+                parentArticle.remove();
+
+            console.log("Se elimino el elemento",e.target);
+        });
+
+    });
 
 input__search.addEventListener("change", (e) => {
     let text = e.target.value;
@@ -17,18 +40,31 @@ input__search.addEventListener("change", (e) => {
     let search = addTask(text);
     section__task.innerHTML += search;  
     console.log(section__task.value)
-    let check = document.querySelector(".check");
-    check.addEventListener("click", (e) => {
-        console.log("se realizo click",e);
+    let checks = document.querySelectorAll(".check");
+    checks.forEach(element => {
+        console.log(element);
+        element.addEventListener("click", (e) => {
+            let parentArticle = e.target.closest('article');
+            if (parentArticle.classList.contains('tasks')) {
+                parentArticle.classList.remove('tasks');
+                parentArticle.classList.add('tasks__done');
+                parentArticle.querySelector('p').classList.add('name__check');
+            } else {
+                parentArticle.classList.remove('tasks__done');
+                parentArticle.classList.add('tasks');
+                parentArticle.querySelector('p').classList.remove('name__check');
+            }
+        });
+    });
+    let trashs = document.querySelectorAll(".trash");
+    trashs.forEach(element => {
+        element.addEventListener("click", (e) => {
+            let parentArticle = e.target.closest('article');
+                parentArticle.remove();
+
+            console.log("Se elimino el elemento",e.target);
         });
 
-    let trash = document.querySelector(".trash");
-    trash.addEventListener("click", (e) => {
-        console.log("se realizo click",e);
-    })  
-    console.log(search);
+    });
+
 });
-
-document.addEventListener("DOMContentLoaded", async (e) => {
-
-})
