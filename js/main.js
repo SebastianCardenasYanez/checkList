@@ -1,4 +1,4 @@
-import {getAllList, postTask} from "./module/app.js";
+import {getAllList, postTask, deleteTask} from "./module/app.js";
 import {writeTasks, addTask} from "./components/section.js";
 
 let section__task = document.querySelector(".section__task");
@@ -27,6 +27,9 @@ let checks = document.querySelectorAll(".check");
     trashs.forEach(element => {
         element.addEventListener("click", (e) => {
             let parentArticle = e.target.closest('article');
+                let articleId = parentArticle.id;
+                console.log(articleId);
+                let deleAtask = deleteTask(articleId)
                 parentArticle.remove();
 
             console.log("Se elimino el elemento",e.target);
@@ -67,6 +70,9 @@ input__search.addEventListener("change", (e) => {
     trashs.forEach(element => {
         element.addEventListener("click", (e) => {
             let parentArticle = e.target.closest('article');
+                let articleId = parentArticle.id;
+                console.log(articleId);
+                let deleAtask = deleteTask(articleId)
                 parentArticle.remove();
 
             console.log("Se elimino el elemento",e.target);

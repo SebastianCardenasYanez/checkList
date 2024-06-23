@@ -39,3 +39,24 @@ export const postTask = (postATask) => {
             throw error;
         });
 }
+
+export const deleteTask = (id) => {
+    let url = `https://66774418145714a1bd7445c8.mockapi.io/Checklist/${id}`;
+    let options = {
+        method : "DELETE",
+        headers : {
+            "Content-Type" : "application/json",
+        },
+    }
+    return fetch(url, options)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
+            return res;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        });
+}
