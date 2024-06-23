@@ -12,11 +12,20 @@ export const elementId = async(data) => {
 let elements = await elementId(data);
 console.log(elements); 
 
+function updateDateTime() {
+    let date = new Date();
+    let dateLeg = date.toLocaleString();
+    document.getElementById('current__date').textContent = dateLeg;
+}
+updateDateTime();
+
+setInterval(updateDateTime, 1000);
+
 export const writeTasks = async(res) => {
     let date = new Date();
     let dateLeg = date.toLocaleString();
     let plantilla = /*html*/`
-    <span class="date">${dateLeg}</span>
+    <span class="date" id="current__date" >${updateDateTime()}</span>
     `;
     let section__task = document.querySelector(".section__task");
     section__task.innerHTML = plantilla
