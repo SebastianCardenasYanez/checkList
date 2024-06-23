@@ -17,3 +17,25 @@ export const getList = async(id) => {
     let data = res.json();
     return data;   
 }
+
+export const postTask = (postATask) => {
+    let url =`https://66774418145714a1bd7445c8.mockapi.io/Checklist`;
+    let options = {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json",
+        },
+        body : JSON.stringify(postATask)
+    }
+    return fetch(url, options)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
+            return res;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        });
+}

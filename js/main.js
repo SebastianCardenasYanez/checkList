@@ -1,4 +1,4 @@
-import {getAllList} from "./module/app.js";
+import {getAllList, postTask} from "./module/app.js";
 import {writeTasks, addTask} from "./components/section.js";
 
 let section__task = document.querySelector(".section__task");
@@ -38,7 +38,14 @@ input__search.addEventListener("change", (e) => {
     let text = e.target.value;
     input__search.value = null;
     let search = addTask(text);
-    section__task.innerHTML += search;  
+    console.log(search);
+    section__task.innerHTML += search;
+    console.log(text);
+    let postATask = {
+        task : text,
+        status : 'On hold',
+    }
+    let post = postTask(postATask)
     console.log(section__task.value)
     let checks = document.querySelectorAll(".check");
     checks.forEach(element => {
