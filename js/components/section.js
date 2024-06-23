@@ -3,16 +3,14 @@ import {getList, getAllList} from "../module/app.js";
 let data = await getAllList();
 
 export const elementId = async(data) => {
-    let counter = 1;
-    for (let i = 1; i <= data.length; i++) {
-        counter++;
-        console.log(counter);
-        
-        
-    }
-    return counter;
+    let lastData = data.at(-1)
+    let idData = lastData.id
+    console.log(idData)
+    console.log(idData ++)
+    return idData++;
 }
 let elements = await elementId(data);
+console.log(elements); 
 
 export const writeTasks = async(res) => {
     let date = new Date();
@@ -69,6 +67,5 @@ export const addTask = (input) => {
         </div>
     </article>
     `;
-    elements++;
     return plantilla;
 }

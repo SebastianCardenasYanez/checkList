@@ -60,3 +60,26 @@ export const deleteTask = (id) => {
             throw error;
         });
 }
+
+export const putTask = (id, task) => {
+    let url =`https://66774418145714a1bd7445c8.mockapi.io/Checklist/${id}`;
+    let options = {
+        method : "PUT",
+        headers : {
+            "Content-Type" : "application/json",
+        },
+        body : JSON.stringify(task)
+    }
+    console.log(options);
+    return fetch(url, options)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok ' + res.statusText);
+            }
+            return res;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        });
+};

@@ -1,4 +1,4 @@
-import {getAllList, postTask, deleteTask} from "./module/app.js";
+import {getAllList, postTask, deleteTask, putTask} from "./module/app.js";
 import {writeTasks, addTask} from "./components/section.js";
 
 let section__task = document.querySelector(".section__task");
@@ -16,10 +16,32 @@ let checks = document.querySelectorAll(".check");
                 parentArticle.classList.remove('tasks');
                 parentArticle.classList.add('tasks__done');
                 parentArticle.querySelector('p').classList.add('name__check');
+                let pTask = parentArticle.querySelector('p');
+                let id = parentArticle.id
+                let nameTask = pTask.textContent
+                let putATask = {
+                    task : nameTask,
+                    status : 'ready',
+                    id : id,
+                }
+                console.log(id, putATask);
+
+                let updateTask = putTask(id, putATask)
             } else {
                 parentArticle.classList.remove('tasks__done');
                 parentArticle.classList.add('tasks');
                 parentArticle.querySelector('p').classList.remove('name__check');
+                let pTask = parentArticle.querySelector('p');
+                let id = parentArticle.id
+                let nameTask = pTask.textContent
+                let putATask = {
+                    task : nameTask,
+                    status : 'On hold',
+                    id : id,
+                }
+                console.log(id, putATask);
+
+                let updateTask = putTask(id, putATask)
             }
         });
     });
@@ -59,10 +81,33 @@ input__search.addEventListener("change", (e) => {
                 parentArticle.classList.remove('tasks');
                 parentArticle.classList.add('tasks__done');
                 parentArticle.querySelector('p').classList.add('name__check');
+                let pTask = parentArticle.querySelector('p');
+                let id = parentArticle.id
+                let nameTask = pTask.textContent
+                let putATask = {
+                    task : nameTask,
+                    status : 'ready',
+                    id : id,
+                }
+                console.log(id, putATask);
+
+                let updateTask = putTask(id, putATask)
+
             } else {
                 parentArticle.classList.remove('tasks__done');
                 parentArticle.classList.add('tasks');
                 parentArticle.querySelector('p').classList.remove('name__check');
+                let pTask = parentArticle.querySelector('p');
+                let id = parentArticle.id
+                let nameTask = pTask.textContent
+                let putATask = {
+                    task : nameTask,
+                    status : 'On hold',
+                    id : id,
+                }
+                console.log(id, putATask);
+
+                let updateTask = putTask(id, putATask)
             }
         });
     });
