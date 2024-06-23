@@ -1,3 +1,19 @@
+import {getList, getAllList} from "../module/app.js";
+
+let data = await getAllList();
+
+export const elementId = async(data) => {
+    let counter = 1;
+    for (let i = 1; i <= data.length; i++) {
+        counter++;
+        console.log(counter);
+        
+        
+    }
+    return counter;
+}
+let elements = await elementId(data);
+
 export const writeTasks = async(res) => {
     let date = new Date();
     let dateLeg = date.toLocaleString();
@@ -9,7 +25,7 @@ export const writeTasks = async(res) => {
     res.forEach(elements => {
         if (elements.status === "On hold") {
             let squech = /*html*/`
-            <article class="tasks">
+            <article class="tasks" id="${elements.id}">
             <p class="name" >${elements.task}</p>
             <div class="icons">
             <img class="check" src="images/check-circle-svgrepo-com.svg" alt="">
@@ -24,7 +40,7 @@ export const writeTasks = async(res) => {
         }else {
             let section__task = document.querySelector(".section__task");
             let squech = /*html*/`
-            <article class="tasks__done">
+            <article class="tasks__done" id="${elements.id}">
             <p class="name__check" >${elements.task}</p>
             <div class="icons">
             <img class="check" src="images/check-circle-svgrepo-com.svg" alt="">
@@ -43,7 +59,7 @@ export const writeTasks = async(res) => {
 export const addTask = (input) => {
     let plantilla = "";
     plantilla = /*html*/`
-    <article class="tasks">
+    <article class="tasks" id = "${elements}">
         <p>${input}</p>
         <div class="icons">
             <img class="check" src="images/check-circle-svgrepo-com.svg" alt="">
@@ -53,5 +69,6 @@ export const addTask = (input) => {
         </div>
     </article>
     `;
+    elements++;
     return plantilla;
 }
