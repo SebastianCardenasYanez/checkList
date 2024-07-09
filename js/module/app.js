@@ -1,5 +1,5 @@
 export const getAllList = async() => {
-    let url =`https://66774418145714a1bd7445c8.mockapi.io/Checklist`;
+    let url =`https://6674179975872d0e0a950e53.mockapi.io/todoList`;
     let options = {
         method : "GET",
     }
@@ -9,7 +9,7 @@ export const getAllList = async() => {
 }
 
 export const getList = async(id) => {
-    let url = `https://66774418145714a1bd7445c8.mockapi.io/Checklist/${id}`;
+    let url = `https://6674179975872d0e0a950e53.mockapi.io/todoList/${id}`;
     let options = {
         method : "GET",
     }
@@ -19,7 +19,7 @@ export const getList = async(id) => {
 }
 
 export const postTask = (postATask) => {
-    let url =`https://66774418145714a1bd7445c8.mockapi.io/Checklist`;
+    let url =`https://6674179975872d0e0a950e53.mockapi.io/todoList`;
     let options = {
         method : "POST",
         headers : {
@@ -41,7 +41,7 @@ export const postTask = (postATask) => {
 }
 
 export const deleteTask = (id) => {
-    let url = `https://66774418145714a1bd7445c8.mockapi.io/Checklist/${id}`;
+    let url = `https://6674179975872d0e0a950e53.mockapi.io/todoList/${id}`;
     let options = {
         method : "DELETE",
         headers : {
@@ -62,7 +62,7 @@ export const deleteTask = (id) => {
 }
 
 export const putTask = (id, task) => {
-    let url =`https://66774418145714a1bd7445c8.mockapi.io/Checklist/${id}`;
+    let url =`https://6674179975872d0e0a950e53.mockapi.io/todoList/${id}`;
     let options = {
         method : "PUT",
         headers : {
